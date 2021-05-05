@@ -296,7 +296,7 @@ function render(
         mkdir(ep_dir)
     end
     filepath = joinpath(ep_dir, "step_$(env.t).png")
-    write_to_png(frame, filepath)
+    AutoViz.write_to_png(frame, filepath)
 
     # load and return the frame as an rgb array
     img = PyPlot.imread(filepath)

@@ -1,4 +1,4 @@
-
+import setGPU
 import numpy as np
 import os
 import tensorflow as tf
@@ -33,6 +33,7 @@ def do_curriculum(args):
         )
         print("Full path:", args.params_filepath)
 
+    args.reused = False
     for n_envs in range(args.n_envs_start, args.n_envs_end + args.n_envs_step, args.n_envs_step):
         args.n_envs = n_envs
         args.exp_name = base_exp_name + '_' + str(n_envs)
@@ -51,6 +52,8 @@ def do_curriculum(args):
             args.exp_name, # previous experiment name
             'imitate/log/itr_{}.npz'.format(n_itrs)
         )
+        args.reused = True
+        tf.reset_default_graph()
 
 
 

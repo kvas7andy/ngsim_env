@@ -1,4 +1,4 @@
-
+import setGPU
 import io
 import numpy as np
 import tensorflow as tf

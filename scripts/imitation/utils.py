@@ -189,6 +189,7 @@ def build_critic(args, data, env, writer=None):
         name='critic', 
         hidden_layer_dims=args.critic_hidden_layer_dims,
         dropout_keep_prob=args.critic_dropout_keep_prob
+        #reused = args.reused
     )
     critic = WassersteinCritic(
         obs_dim=env.observation_space.flat_dim,
